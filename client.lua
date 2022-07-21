@@ -1,4 +1,3 @@
---local QBCore = exports['qb-core']:GetCoreObject()
 local CurrentCops = 0
 local BankRobberyCD = false
 
@@ -49,11 +48,10 @@ RegisterNetEvent('sd-dongle:activity', function()
             header[#header+1] = {
                 id = 'Close (ESC)',
                 title = '❌ Close (ESC)',
-                --description = '❌ Close',
             }
             lib.registerContext({
                 id = 'availablerobberies',
-                title = '💁 Available Robberies 💁',
+                title = '❗❎ Available Robberies ❎❗',
                 options = header
             })
             lib.showContext('availablerobberies')
@@ -77,11 +75,10 @@ RegisterNetEvent('sd-dongle:buyitems', function(data)
     header[#header+1] = {
         id = "Close (ESC)",
         title = "❌ Close (ESC)",
-        --description = "Close",
     }
     lib.registerContext({
         id = 'robberyitems',
-        title = '💥 Practice Makes Perfect! 💥',
+        title = '💲 Special Equipment 💲',
         options = header
     })
     lib.showContext('robberyitems')
@@ -133,6 +130,7 @@ end)
 -- Target Exports
 
 CreateThread(function()
+
     exports.qtarget:AddTargetModel('cs_old_man2', {
         options = {
             {
@@ -150,4 +148,6 @@ CreateThread(function()
         },
         distance = 3
     })
+
 end)
+
