@@ -1,7 +1,4 @@
-local QBCore = exports['qb-core']:GetCoreObject()
 local CurrentCops = 0
-
-
 local BankRobberyCD = false
 
 -- Blip Creation
@@ -23,83 +20,70 @@ Citizen.CreateThread(function()
 end)
 
 RegisterNetEvent('sd-dongle:activity', function()
-            local header = {
-                {
-                    isMenuHeader = true,
-                    icon = "fa-solid fa-circle-info",
-                    header = "💁 Available Robberies 💁",
-                }
-            }
+            local header = {}
             for k, v in pairs(Config.RobberyList) do
                 if CurrentCops >= v.minCops then
                     if not v.bank or (v.bank and not BankRobberyCD) then
                         header[#header+1] = {
-                            header = v.Header,
-                            txt = "✔️ Available",
-                            icon = v.icon,
-                            isMenuHeader = true,
+                            id = v.Header,
+                            title = v.Header,
+                            description = '✔️ Available',
                         }
                     else
                         header[#header+1] = {
-                            header = v.Header,
-                            txt = "❌ Not Available",
-                            icon = v.icon,
-                            isMenuHeader = true,
+                            id = v.Header,
+                            title = v.Header,
+                            description = '❌ Not Available',
                         }
                     end
                 else
                     header[#header+1] = {
-                        header = v.Header,
-                        txt = "Not Available",
-                        icon = v.icon,
-                        isMenuHeader = true,
+                        id = v.Header,
+                        title = v.Header,
+                        description = '❌ Not Available',
+                        
                     }
                 end
             end
             header[#header+1] = {
-                header = "Close (ESC)",
-                icon = "fa-solid fa-angle-left",
-                isMenuHeader = true,
-                params = {
-                    event = "",
-                }
+                id = 'Close (ESC)',
+                title = 'Close (ESC)',
+                description = '❌ Close',
             }
-        
-            exports['qb-menu']:openMenu(header)
-        end)
+            lib.registerContext({
+                id = 'availablerobberies',
+                title = '💁 Available Robberies 💁',
+                options = header
+            })
+            lib.showContext('availablerobberies')
+end)
+
+local itemNames = {}
 
 RegisterNetEvent('sd-dongle:buyitems', function(data)
-    local header = {
-        {
-            isMenuHeader = true,
-            icon = "fa-solid fa-circle-info",
-            header = "💥 Practice Makes Perfect! 💥"
-        }
-    }
+    local header = {}
     for k, v in pairs(Config.Shop) do
-        if QBCore.Shared.Items[v.item].label then
+        if v.item.label then
             header[#header+1] = {
-                header = QBCore.Shared.Items[v.item].label,
-                txt = "Price: "..v.price,
-                icon = v.icon,
-                params = {
-                    isServer = true,
-                    event = "sd-dongle:server:buyshit",
-                    args = k
-                }
+                id = v.item.label,
+                title = v.item.label,
+                description = "Price: "..v.price,
+                serverEvent = "sd-dongle:server:buyshit",
+                args = k
             }
         end
     end
     header[#header+1] = {
-        header = "Close (ESC)",
-        icon = "fa-solid fa-angle-left",
-        isMenuHeader = true,
-        params = {
-            event = "",
-        }
+        id = "Close (ESC)",
+        title = "Close (ESC)",
+        description = "Close",
     }
-
-    exports['qb-menu']:openMenu(header)
+    lib.registerContext({
+        id = 'robberyitems',
+        title = '💥 Practice Makes Perfect! 💥',
+        options = header
+    })
+    lib.showContext('robberyitems')
 end)
 
 
@@ -148,24 +132,23 @@ end)
 -- Target Exports
 
 CreateThread(function()
-    exports['qb-target']:AddTargetModel('cs_old_man2', {
+
+    exports.qtarget:AddTargetModel('cs_old_man2', {
         options = {
-            { 
-                type = "client",
+            {
                 event = "sd-dongle:activity",
                 icon = "fas fa-clock",
                 label = "Check Availability",
-                job = "all",
+                num = 1
             },
             {
-                type = "client",
                 event = "sd-dongle:buyitems",
                 icon = "fas fa-laptop-code",
                 label = "Purchase Equıpment",
-                job = "all",
+                num = 2
             },
         },
-        distance = 3.0 
+        distance = 3
     })
 
 end)
