@@ -4,7 +4,7 @@ RegisterNetEvent('sd-dongle:server:buyshit', function(ped)
     local cash = exports.ox_inventory:GetItem(source, 'money', returnsCount)
 
     if cash >= Config.Shop[ped].price then
-        exports.ox_inventory:RemoveItem(source, 'money', 100)
+        exports.ox_inventory:RemoveItem(source, 'money', Config.Shop[ped].price)
         exports.ox_inventory:AddItem(source, Config.Shop[ped].item, 1)
     else
         TriggerClientEvent('ox_lib:notify', source, 'Not enough '..Config.Shop[ped].type, 'error')
