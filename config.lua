@@ -2,8 +2,7 @@ Config = {}
 
 -- Blip Creation
 
-Config.UseBlip = false
-
+Config.UseBlip = true
 Config.BlipLocation = {
     {title="Shady Dealer", colour=37, id=47, x = -462.73, y = -66.37, z = 44.90},
 } 
@@ -24,31 +23,31 @@ Config.RobberyList = {
         bank = true,
         Header = "Fleeca Banks",
         icon = "fa-solid fa-building-columns",
-        minCops = 4,
+        minCops = 0,
     },
     [2] = {
         bank = true,
         Header = "Paleto Bank",
         icon = "fa-solid fa-building-columns",
-        minCops = 4,
+        minCops = 0,
     },
     [3] = {
         bank = true,
         Header = "Pacific Bank",
         icon = "fa-solid fa-building-columns",
-        minCops = 4,
+        minCops = 0
     },
 }
 
 Config.Shop = {
     [1] = {
-        item = "blue_dongle",
+        item = "red_dongle",
         price = 5450,
         type = "cash",
         icon = "fa-solid fa-laptop-code",
     },
     [2] = {
-        item = "red_dongle",
+        item = "blue_dongle",
         price = 5450,
         type = "cash",
         icon = "fa-solid fa-laptop-code",
@@ -60,13 +59,13 @@ Config.Shop = {
         icon = "fa-solid fa-laptop-code",
     },
     [4] = {
-        item = "black_dongle",
+        item = "yellow_dongle",
         price = 5450,
         type = "cash",
         icon = "fa-solid fa-laptop-code",
     },
     [5] = {
-        item = "mystery_dongle",
+        item = "black_dongle",
         price = 5450,
         type = "cash",
         icon = "fa-solid fa-laptop-code",
