@@ -1,7 +1,7 @@
 RegisterNetEvent('sd-dongle:server:buyshit', function(ped)
     local player = Ox.GetPlayer(source)
     if not source or not player or not ped then return end
-    local cash = player.PlayerData.money[Config.Shop[ped].type]
+    local cash = exports.ox_inventory:GetItem(source, 'money', returnsCount)
 
     if cash >= Config.Shop[ped].price then
         exports.ox_inventory:RemoveItem(source, 'money', 100)
