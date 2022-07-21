@@ -42,31 +42,31 @@ Config.RobberyList = {
 
 Config.Shop = {
     [1] = {
-        item = "electronickit",
+        item = "blue_dongle",
         price = 5450,
         type = "cash",
         icon = "fa-solid fa-laptop-code",
     },
     [2] = {
-        item = "gatecrack",
+        item = "red_dongle",
         price = 5450,
         type = "cash",
         icon = "fa-solid fa-laptop-code",
     },
     [3] = {
-        item = "thermite",
+        item = "green_dongle",
         price = 5450,
         type = "cash",
         icon = "fa-solid fa-laptop-code",
     },
     [4] = {
-        item = "trojan_usb",
+        item = "black_dongle",
         price = 5450,
         type = "cash",
         icon = "fa-solid fa-laptop-code",
     },
     [5] = {
-        item = "drill",
+        item = "mystery_dongle",
         price = 5450,
         type = "cash",
         icon = "fa-solid fa-laptop-code",
