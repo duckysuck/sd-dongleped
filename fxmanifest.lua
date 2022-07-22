@@ -6,16 +6,18 @@ game         'gta5'
 
 --[[ Resource Information ]]--
 name         'sd-dongleped'
-author       'Samuel#0008 | Judd#7644'
+author       'Samuel#0008'
 version      '1.0.2'
 repository   'https://github.com/juddisjudd/sd-dongleped'
 description  'NoPixel Inspired Dongle Ped'
 
 client_scripts {
+	'@ox_core/imports/client.lua',
 	'client.lua',
 }
 
 server_scripts {
+	'@ox_core/imports/server.lua',
 	'server.lua',
 }
 
