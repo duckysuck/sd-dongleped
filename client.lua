@@ -1,5 +1,4 @@
 -- Bank Robbery Triggers
-
 -- do something like when a TriggerClientEvent('sd-dongle:client:SetBankCD', -1, true) when a bank is being robbed
 -- do something like TriggerClientEvent('sd-dongle:client:SetBankCD', -1, false) when a bank can be hit again
 
@@ -74,7 +73,7 @@ RegisterNetEvent('sd-dongle:buyitems', function(data)
         if v.item then
             header[#header+1] = {
                 id = v.item.label,
-                title = v.item.label,
+                title = v.label,
                 description = "Price: "..v.price,
                 serverEvent = "sd-dongle:server:buyshit",
                 args = k
