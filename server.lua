@@ -4,16 +4,11 @@ RegisterNetEvent('sd-dongle:server:buyshit', function(source)
     local cash = exports.ox_inventory:GetItem(source, 'money', returnsCount)
 
     if (exports.ox_inventory:GetItem(cash).count < Config.Shop[source].price) then
-        TriggerClientEvent('ox_lib:notify', source, {title = 'Not enough '..Config.Shop[source].type, type = 'error'})
-    else
         exports.ox_inventory:RemoveItem(source, 'money', Config.Shop[source].price)
         exports.ox_inventory:AddItem(source, Config.Shop[source].item, 1)
         TriggerClientEvent('ox_lib:notify', source, {title = 'Purchased '..Config.Shop[source].label, type = 'success'})
+    else
+        TriggerClientEvent('ox_lib:notify', source, {title = 'Not enough '..Config.Shop[source].type, type = 'error'})
     end
 end)
 
-AddEventHandler('onResourceStart', function(resourceName)
-	if (GetResourceState('ox_core') ~= 'started' ) then
-        print('sd-dongleped - ERROR: ox_Core hasn\'t been found! This will cause errors!')
-    end
-end)
