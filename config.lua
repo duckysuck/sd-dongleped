@@ -42,30 +42,35 @@ Config.RobberyList = {
 Config.Shop = {
     [1] = {
         item = "red_dongle",
+        label = "Red Dongle",
         price = 5450,
         type = "cash",
         icon = "fa-solid fa-laptop-code",
     },
     [2] = {
         item = "blue_dongle",
+        label = "Blue Dongle",
         price = 5450,
         type = "cash",
         icon = "fa-solid fa-laptop-code",
     },
     [3] = {
         item = "green_dongle",
+        label = "Green Dongle",
         price = 5450,
         type = "cash",
         icon = "fa-solid fa-laptop-code",
     },
     [4] = {
         item = "yellow_dongle",
+        label = "Yellow Dongle",
         price = 5450,
         type = "cash",
         icon = "fa-solid fa-laptop-code",
     },
     [5] = {
         item = "black_dongle",
+        label = "Black Dongle",
         price = 5450,
         type = "cash",
         icon = "fa-solid fa-laptop-code",
