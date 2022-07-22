@@ -11,6 +11,11 @@ version      '1.0.2'
 repository   'https://github.com/juddisjudd/sd-dongleped'
 description  'NoPixel Inspired Dongle Ped'
 
+shared_scripts {
+	'@ox_lib/init.lua',
+	'config.lua'
+}
+
 client_scripts {
 	'@ox_core/imports/client.lua',
 	'client.lua',
@@ -19,9 +24,4 @@ client_scripts {
 server_scripts {
 	'@ox_core/imports/server.lua',
 	'server.lua',
-}
-
-shared_scripts {
-	'@ox_lib/init.lua',
-	'config.lua'
 }

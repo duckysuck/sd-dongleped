@@ -14,3 +14,26 @@ RegisterNetEvent('sd-dongle:server:buyshit', function(ped)
         TriggerClientEvent('ox_lib:notify', source, {title = 'Not enough '..Config.Shop[ped].type, style = {backgroundColor = '#141517', color = '#909296'}, icon = 'ban', iconColor = '#C53030', type = 'error'})
     end
 end)
+
+-- Ped creation
+local entity = nil
+
+local function dongleman()
+	if not entity then
+		local ped = CreatePed(4, 'cs_old_man2', -462.795, -66.5747, 44.511, 10.3, true, false)
+		entity = NetworkGetNetworkIdFromEntity(ped)
+		FreezeEntityPosition(ped, true)
+	end
+end
+
+AddEventHandler('onResourceStart', function(resourceName)
+	if GetCurrentResourceName() ~= resourceName then return end
+	dongleman()
+end)
+
+AddEventHandler('onResourceStop', function(resourceName)
+	if entity then if GetCurrentResourceName() ~= resourceName then return end
+	local entity = NetworkGetEntityFromNetworkId(ped)
+	DeleteEntity(entity); entity = nil
+ end
+end)
