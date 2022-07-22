@@ -64,10 +64,14 @@ end)
 
 local itemNames = {}
 
+for item, data in pairs(exports.ox_inventory:Items()) do 
+    itemNames[item] = data.label
+end
+
 RegisterNetEvent('sd-dongle:buyitems', function(data)
     local header = {}
     for k, v in pairs(Config.Shop) do
-        if v.item.label then
+        if v.item then
             header[#header+1] = {
                 id = v.item.label,
                 title = v.item.label,
@@ -130,7 +134,6 @@ end)
 -- Target Exports
 
 CreateThread(function()
-
     exports.qtarget:AddTargetModel('cs_old_man2', {
         options = {
             {
@@ -148,6 +151,4 @@ CreateThread(function()
         },
         distance = 3
     })
-
 end)
-
