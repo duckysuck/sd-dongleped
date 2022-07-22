@@ -9,8 +9,8 @@ RegisterNetEvent('sd-dongle:server:buyshit', function(ped)
     if (cash >= Config.Shop[ped].price) then
         ox_inventory:RemoveItem(source, 'money', Config.Shop[ped].price)
         ox_inventory:AddItem(source, Config.Shop[ped].item, 1)
-        TriggerClientEvent('ox_lib:notify', source, {title = 'Purchased '..Config.Shop[ped].label, type = 'success'})
+        TriggerClientEvent('ox_lib:notify', source, {title = 'Purchased '..Config.Shop[ped].label, style = {backgroundColor = '#141517', color = '#909296'}, icon = 'circle-check', iconColor = '#48BB78', type = 'success'})
     else
-        TriggerClientEvent('ox_lib:notify', source, {title = 'Not enough '..Config.Shop[ped].type, type = 'error'})
+        TriggerClientEvent('ox_lib:notify', source, {title = 'Not enough '..Config.Shop[ped].type, style = {backgroundColor = '#141517', color = '#909296'}, icon = 'ban', iconColor = '#C53030', type = 'error'})
     end
 end)
