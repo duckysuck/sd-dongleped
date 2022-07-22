@@ -15,6 +15,11 @@ public available "Police Job" that functionaility is just sort of there as a pla
 
 [qtarget](https://github.com/overextended/qtarget)
 
+# Bank Robbery Triggers
+`TriggerClientEvent('sd-dongle:client:SetBankCD', -1, true)` *when a bank is being robbed*
+
+`TriggerClientEvent('sd-dongle:client:SetBankCD', -1, false)` *when a bank can be hit again*
+
 # Credits
 
 🔗 > [Github-Samuel](https://github.com/Github-Samuel/sd-dongleped)
