@@ -3,7 +3,7 @@ local ox_inventory = exports.ox_inventory
 RegisterNetEvent('sd-dongle:server:buyshit', function(ped)
     local player = Ox.GetPlayer(source)
     if not source or not Player or not ped then return end
-    local cash = ox_inventory:Search(source, 'count', 'money')
+    local cash = ox_inventory:Search(source, 'count', Config.CurrencyItem)
     print(cash)
 
     if (cash >= Config.Shop[ped].price) then
