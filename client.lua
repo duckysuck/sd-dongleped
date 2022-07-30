@@ -49,13 +49,9 @@ RegisterNetEvent('sd-dongle:activity', function()
                 end
             end
 
-            header[#header+1] = {
-                id = 'Close (ESC)',
-                title = '❌ Close (ESC)',
-            }
             lib.registerContext({
                 id = 'availablerobberies',
-                title = '❗❎ Available Robberies ❎❗',
+                title = '❗ Available Robberies ❗',
                 options = header
             })
             lib.showContext('availablerobberies')
@@ -82,10 +78,6 @@ RegisterNetEvent('sd-dongle:buyitems', function(data)
         end
     end
 
-    header[#header+1] = {
-        id = "Close (ESC)",
-        title = "❌ Close (ESC)",
-    }
     lib.registerContext({
         id = 'robberyitems',
         title = '💲 Special Equipment 💲',
