@@ -3,7 +3,7 @@ Config = {}
 -- Blip Creation
 Config.UseBlip = true
 Config.BlipLocation = {
-    {title="Shady Dealer", colour=37, id=47, x = -462.73, y = -66.37, z = 44.90},
+    {title="Shady Dealer", colour=37, id=280, x = -462.73, y = -66.37, z = 44.90},
 }
 
 -- If using an "Item" for money, for example money with ox_inventory

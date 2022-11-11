@@ -12,7 +12,7 @@ CreateThread(function()
 	   		info.blip = AddBlipForCoord(info.x, info.y, info.z)
 	   		SetBlipSprite(info.blip, info.id)
 	   		SetBlipDisplay(info.blip, 4)
-	   		SetBlipScale(info.blip, 0.6)
+	   		SetBlipScale(info.blip, 0.5)
 	   		SetBlipColour(info.blip, info.colour)
 	   		SetBlipAsShortRange(info.blip, true)
 	   		BeginTextCommandSetBlipName("STRING")
@@ -94,10 +94,11 @@ RegisterNetEvent('police:SetCopCount', function(amount)
     CurrentCops = amount
 end)
 
-local qtarget = exports.qtarget
+local ox_target = exports.ox_target
 local dongleman = 'cs_old_man2'
 
-qtarget:AddTargetModel(dongleman, {
+ox_target:AddModel(dongleman, {
+    
 	options = {
 	 {
 		 event = "sd-dongle:activity",
