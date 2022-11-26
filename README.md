@@ -15,7 +15,7 @@ public available "Police Job" that functionaility is just sort of there as a pla
 
 [ox_inventory](https://github.com/overextended/ox_inventory)
 
-[qtarget](https://github.com/overextended/qtarget)
+[ox_target](https://github.com/overextended/ox_target)
 
 # Bank Robbery Triggers
 `TriggerClientEvent('sd-dongle:client:SetBankCD', -1, true)` *when a bank is being robbed*
